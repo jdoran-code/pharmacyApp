@@ -15,7 +15,7 @@ string name;
 int nameIndex;
 string status = "0";
 
-//Todo
+//Todo Hello world
 
 //Begins the account registration process for all users
 void registerAccount();
