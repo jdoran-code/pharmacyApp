@@ -15,8 +15,6 @@ string name;
 int nameIndex;
 string status = "0";
 
-//Todo Hello world
-
 //Begins the account registration process for all users
 void registerAccount();
 
@@ -490,7 +488,7 @@ void refillPrescription() {
     for (int i = 0; i <= max; i += 8) {
         duration = stoi(prescriptions[i + 4]);
         refills = stoi(prescriptions[i + 5]);
-        if (prescriptions[i] == patient and prescriptions[i + 1] == drug and difftime(ct, prescriptionTimes[loops]) >= (double)duration * 86400.0 and refills != 0) {
+        if (prescriptions[i] == patient and prescriptions[i + 1] == drug and difftime(ct, prescriptionTimes[loops]) >= (double)duration and refills != 0) {
             cout << "Prescription refilled\n";
             refills -= 1;
             prescriptions[i + 5] = to_string(refills);
@@ -515,7 +513,7 @@ void Notifications() {
     for (int i = 0; i <= prescriptions.size() - 1; i += 8) {
         duration = stoi(prescriptions[i + 4]);
 
-        if (prescriptions[i] == name and difftime(ct, prescriptionTimes[loops]) >= (double)duration * 86400.0 and stoi(prescriptions[i + 5]) != 0) {
+        if (prescriptions[i] == name and difftime(ct, prescriptionTimes[loops]) >= (double)duration and stoi(prescriptions[i + 5]) != 0) {
             if (numRefills == 0) {
                 cout << "You can now obtain refills on the following prescriptions:\n";
             }
